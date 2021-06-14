@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <polyline points="99.2283,329.5 50,232.18 99.2283,329.5" fill="none" stroke="green" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="550,190.051 279.22,50 333.61,269.08 550,190.051" fill="none" stroke="rgb(255,160,0)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <text fill="rgba(255,255,255,0.85)" stroke="rgba(255,255,255,0.85)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" x="99.2283" y="329.5" dx="7" dy="15" font-size="20" font-family="Verdana" font-weight="bold">114</text>
+  <text fill="green" x="99.2283" y="329.5" dx="7" dy="15" font-size="20" font-family="Verdana" font-weight="bold">114</text>
+  <text fill="rgba(255,255,255,0.85)" stroke="rgba(255,255,255,0.85)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" x="50" y="232.18" dx="7" dy="15" font-size="20" font-family="Verdana" font-weight="bold">114</text>
+  <text fill="green" x="50" y="232.18" dx="7" dy="15" font-size="20" font-family="Verdana" font-weight="bold">114</text>
+  <text fill="rgba(255,255,255,0.85)" stroke="rgba(255,255,255,0.85)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" x="550" y="190.051" dx="7" dy="15" font-size="20" font-family="Verdana" font-weight="bold">14</text>
+  <text fill="rgb(255,160,0)" x="550" y="190.051" dx="7" dy="15" font-size="20" font-family="Verdana" font-weight="bold">14</text>
+  <circle cx="99.2283" cy="329.5" r="5" fill="white"/>
+  <circle cx="50" cy="232.18" r="5" fill="white"/>
+  <circle cx="333.61" cy="269.08" r="5" fill="white"/>
+  <circle cx="550" cy="190.051" r="5" fill="white"/>
+  <circle cx="279.22" cy="50" r="5" fill="white"/>
+  <text fill="rgba(255,255,255,0.85)" stroke="rgba(255,255,255,0.85)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" x="99.2283" y="329.5" dx="7" dy="-3" font-size="20" font-family="Verdana">Морской вокзал</text>
+  <text fill="black" x="99.2283" y="329.5" dx="7" dy="-3" font-size="20" font-family="Verdana">Морской вокзал</text>
+  <text fill="rgba(255,255,255,0.85)" stroke="rgba(255,255,255,0.85)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" x="50" y="232.18" dx="7" dy="-3" font-size="20" font-family="Verdana">Ривьерский мост</text>
+  <text fill="black" x="50" y="232.18" dx="7" dy="-3" font-size="20" font-family="Verdana">Ривьерский мост</text>
+  <text fill="rgba(255,255,255,0.85)" stroke="rgba(255,255,255,0.85)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" x="333.61" y="269.08" dx="7" dy="-3" font-size="20" font-family="Verdana">Улица Докучаева</text>
+  <text fill="black" x="333.61" y="269.08" dx="7" dy="-3" font-size="20" font-family="Verdana">Улица Докучаева</text>
+  <text fill="rgba(255,255,255,0.85)" stroke="rgba(255,255,255,0.85)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" x="550" y="190.051" dx="7" dy="-3" font-size="20" font-family="Verdana">Улица Лизы Чайкиной</text>
+  <text fill="black" x="550" y="190.051" dx="7" dy="-3" font-size="20" font-family="Verdana">Улица Лизы Чайкиной</text>
+  <text fill="rgba(255,255,255,0.85)" stroke="rgba(255,255,255,0.85)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" x="279.22" y="50" dx="7" dy="-3" font-size="20" font-family="Verdana">Электросети</text>
+  <text fill="black" x="279.22" y="50" dx="7" dy="-3" font-size="20" font-family="Verdana">Электросети</text>
+
+
+</svg>
