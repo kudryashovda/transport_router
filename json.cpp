@@ -34,7 +34,7 @@ namespace json {
                 throw ParsingError("Array parsing error"s);
             }
 
-            return Node(std::move(result));
+            return result;
         }
 
         Node LoadDict(std::istream& input) {
@@ -62,7 +62,7 @@ namespace json {
                 throw ParsingError("Dictionary parsing error"s);
             }
 
-            return Node(std::move(dict));
+            return dict;
         }
 
         Node LoadString(std::istream& input) {
@@ -111,7 +111,7 @@ namespace json {
                 ++it;
             }
 
-            return Node(std::move(str));
+            return str;
         }
 
         Node LoadBool(std::istream& input) {
@@ -207,10 +207,7 @@ namespace json {
                 return LoadDict(input);
             case '"':
                 return LoadString(input);
-            case 't':
-                input.putback(current_char);
-                return LoadBool(input);
-            case 'f':
+            case 't': case 'f':
                 input.putback(current_char);
                 return LoadBool(input);
             case 'n':
@@ -238,7 +235,7 @@ namespace json {
             }
         };
 
-        void PrintNode(const Node& value, const PrintContext& ctx);
+        void PrintNode(const Node& node, const PrintContext& ctx);
 
         template <typename Value>
         void PrintValue(const Value& value, const PrintContext& ctx) {

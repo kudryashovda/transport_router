@@ -3,7 +3,7 @@
 using namespace std;
 
 void Transport_router::CreateGraph() {
-    // dictionary for put and after remove biggest edges and trasfer later to graph.AddEdge
+    // dictionary for put and after remove the biggest edges and transfer later to graph.AddEdge
     std::unordered_map<std::pair<graph::VertexId, graph::VertexId>, Edge_props, tc::StopsDistanceHash> tmp_pair_idx_to_distance;
 
     graph::VertexId idx_stop_from = 0;
@@ -95,7 +95,7 @@ void Transport_router::CreateGraph() {
             Edge_props edge_prop(props);
             edge_prop.travel_time = travel_time;
 
-            edgeID_to_edge_props_.emplace(id, std::move(edge_prop));
+            edgeID_to_edge_props_.emplace(id, edge_prop);
         }
     }
 }

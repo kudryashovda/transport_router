@@ -5,6 +5,7 @@
 #include "svg.h"
 
 #include <string_view>
+#include <utility>
 #include <vector>
 
 struct RenderSettings {
@@ -31,8 +32,8 @@ using Container_stops_points = std::deque<std::pair<svg::Point, std::string_view
 
 class MapRenderer {
 public:
-    MapRenderer(const RenderSettings& rs)
-        : rs_(rs) {
+    MapRenderer(RenderSettings  rs)
+        : rs_(std::move(rs)) {
     }
 
     double GetHeight() const;

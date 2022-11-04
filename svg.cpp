@@ -164,7 +164,7 @@ namespace svg {
         return *this;
     }
 
-    std::string Text::RemoveOutSpaces(const std::string& str) const {
+    std::string Text::RemoveOutSpaces(const std::string& str) {
         auto left_nspace_pos = str.find_first_not_of(' ');
         auto right_nspace_pos = str.find_last_not_of(' ');
 
@@ -176,7 +176,7 @@ namespace svg {
         return str.substr(left_nspace_pos, right_nspace_pos - left_nspace_pos + 1);
     }
 
-    std::string Text::SpecialSymbolsShield(const std::string& str) const {
+    std::string Text::SpecialSymbolsShield(const std::string& str) {
         std::string out_str;
 
         for (char current_char : str) {

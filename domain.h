@@ -8,15 +8,15 @@
 
 struct Stop {
     std::string name;
-    double latitude;
-    double longitude;
+    double latitude{};
+    double longitude{};
     std::deque<std::pair<int, std::string>> distances_to_stops;
 };
 
 struct Bus {
     std::string name;
     std::deque<std::string> stops;
-    bool is_roundtrip;
+    bool is_roundtrip = false;
 };
 
 enum class RequestType {
@@ -27,17 +27,17 @@ enum class RequestType {
 };  
 
 struct Stat {
-    int id;
+    int id{};
     RequestType type;
     std::unordered_map<std::string, std::string> key_values;
 };
 
 struct Bus_Route_Stat {
     std::string bus_name;
-    int stops_count = 0;
-    int unique_stops = 0;
-    double length = 0.0;
-    double curvature = 0.0;
+    int stops_count{};
+    int unique_stops{};
+    double length{};
+    double curvature{};
 };
 
 struct BusesToStop {

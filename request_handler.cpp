@@ -2,7 +2,8 @@
 
 #include <cmath>
 
-RequestHandler::RequestHandler(const tc::TransportCatalogue& transport_catalogue, const MapRenderer& renderer, const graph::Router<double>& router, const Transport_router& transport_router)
+RequestHandler::RequestHandler(const tc::TransportCatalogue &transport_catalogue, const MapRenderer &renderer,
+                               const graph::Router<double> &router, const Transport_router &transport_router)
     : transport_catalogue_(transport_catalogue)
     , renderer_(renderer)
     , router_(router)
@@ -22,7 +23,7 @@ RequestHandler::RequestHandler(const tc::TransportCatalogue& transport_catalogue
     });
 }
 
-const Bus_Route_Stat RequestHandler::GetBusStat(const std::string_view bus_name) const {
+Bus_Route_Stat RequestHandler::GetBusStat(const std::string_view bus_name) const {
     Bus_Route_Stat bus_route;
 
     bus_route.bus_name = bus_name;
@@ -59,7 +60,7 @@ const Bus_Route_Stat RequestHandler::GetBusStat(const std::string_view bus_name)
     return bus_route;
 }
 
-const BusesToStop RequestHandler::GetBusesByStop(const std::string_view stop_name) const {
+BusesToStop RequestHandler::GetBusesByStop(const std::string_view stop_name) const {
     BusesToStop b2s;
 
     b2s.stop_name = stop_name;
@@ -174,7 +175,7 @@ svg::Document RequestHandler::RenderMap() const {
         double lat = transport_catalogue_.GetStopByName(stop_name)->latitude;
         double lng = transport_catalogue_.GetStopByName(stop_name)->longitude;
 
-        stops_w_buses_points.push_back(std::make_pair(sp({ lat, lng }), stop_name));
+        stops_w_buses_points.emplace_back(sp({ lat, lng }), stop_name);
     }
 
     renderer_.RenderBusStopsCycle(doc, stops_w_buses_points);
@@ -232,13 +233,13 @@ int RequestHandler::CalculateRealLength(const Bus* bus) const {
     return length;
 }
 
-int RequestHandler::GetUniqueStopsCount(const Bus* bus) const {
+int RequestHandler::GetUniqueStopsCount(const Bus* bus) {
     std::unordered_set<std::string_view> unique_stops(bus->stops.begin(), bus->stops.end());
 
     return static_cast<int>(unique_stops.size());
 }
 
-const std::optional<Route_Stat> RequestHandler::GetRoute(std::string_view from, std::string_view to) const {
+std::optional<Route_Stat> RequestHandler::GetRoute(std::string_view from, std::string_view to) const {
     const Routing_settings routing_settings = transport_router_.GetRouterSettings();
 
     const Stop* stop_from = transport_catalogue_.GetStopByName(from);

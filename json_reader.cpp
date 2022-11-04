@@ -185,8 +185,8 @@ Parsed_Inputs_Queries ParseJson(const json::Document& document) {
                     Bus bus;
                     bus.name = entry_dict.at("name"s).AsString();
 
-                    for (auto stop : entry_dict.at("stops"s).AsArray()) {
-                        bus.stops.push_back(std::move(stop.AsString()));
+                    for (const auto& stop : entry_dict.at("stops"s).AsArray()) {
+                        bus.stops.push_back(stop.AsString());
                     }
 
                     bus.is_roundtrip = entry_dict.at("is_roundtrip"s).AsBool();
@@ -219,7 +219,8 @@ Parsed_Inputs_Queries ParseJson(const json::Document& document) {
         // convert velocity in km/h coefficient to calculate time in minutes
         constexpr int meters_in_km = 1000;
         constexpr int minutes_in_hour = 60;
-        parsed.routing_settings.bus_velocity = meters_in_km / double(minutes_in_hour) * routing_map.at("bus_velocity"s).AsDouble();
+        parsed.routing_settings.bus_velocity =
+                meters_in_km / double(minutes_in_hour) * routing_map.at("bus_velocity"s).AsDouble();
     }
 
     if (render_settings_dict_it != root_dict.end()) {
@@ -278,7 +279,7 @@ Parsed_Inputs_Queries ParseJson(const json::Document& document) {
                     request.key_values["to"s] = to_it->second.AsString();
                 }
 
-                parsed.queries.push_back(std::move(request));
+                parsed.queries.push_back(request);
             }
 
             // "Stop" and "Bus" requests have similar structure
@@ -289,7 +290,7 @@ Parsed_Inputs_Queries ParseJson(const json::Document& document) {
                     request.key_values["name"s] = payload_it->second.AsString();
                 }
 
-                parsed.queries.push_back(std::move(request));
+                parsed.queries.push_back(request);
             }
 
             if (request_type == "Bus"s) {
@@ -299,7 +300,7 @@ Parsed_Inputs_Queries ParseJson(const json::Document& document) {
                     request.key_values["name"s] = payload_it->second.AsString();
                 }
 
-                parsed.queries.push_back(std::move(request));
+                parsed.queries.push_back(request);
             }
 
             if (request_type == "Map"s) {
@@ -320,8 +321,10 @@ svg::Color getColorFromJsonNode(const json::Node& node) {
     auto& arr = node.AsArray();
 
     if (arr.size() == 3) {
-        return svg::Rgb{ static_cast<uint8_t>(arr[0].AsInt()), static_cast<uint8_t>(arr[1].AsInt()), static_cast<uint8_t>(arr[2].AsInt()) };
+        return svg::Rgb{static_cast<uint8_t>(arr[0].AsInt()), static_cast<uint8_t>(arr[1].AsInt()),
+                        static_cast<uint8_t>(arr[2].AsInt())};
     }
 
-    return svg::Rgba{ static_cast<uint8_t>(arr[0].AsInt()), static_cast<uint8_t>(arr[1].AsInt()), static_cast<uint8_t>(arr[2].AsInt()), arr[3].AsDouble() };
+    return svg::Rgba{static_cast<uint8_t>(arr[0].AsInt()), static_cast<uint8_t>(arr[1].AsInt()),
+                     static_cast<uint8_t>(arr[2].AsInt()), arr[3].AsDouble()};
 }

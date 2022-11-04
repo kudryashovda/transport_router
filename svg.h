@@ -26,7 +26,7 @@ namespace svg {
     };
 
     struct RenderContext {
-        RenderContext(std::ostream& out)
+        explicit RenderContext(std::ostream& out)
             : out(out) {
         }
 
@@ -63,7 +63,7 @@ namespace svg {
 
     // -------PathProps--------
     struct Rgb {
-        Rgb(){};
+        Rgb()= default;;
         Rgb(uint8_t red, uint8_t green, uint8_t blue)
             : red(red)
             , green(green)
@@ -75,7 +75,7 @@ namespace svg {
     };
 
     struct Rgba {
-        Rgba(){};
+        Rgba()= default;;
         Rgba(uint8_t red, uint8_t green, uint8_t blue, double opacity)
             : red(red)
             , green(green)
@@ -103,10 +103,12 @@ namespace svg {
             out << str;
         }
         void operator()(svg::Rgb rgb) const {
-            out << "rgb("sv << static_cast<int>(rgb.red) << ","sv << static_cast<int>(rgb.green) << ","sv << static_cast<int>(rgb.blue) << ")"sv;
+            out << "rgb("sv << static_cast<int>(rgb.red) << ","sv << static_cast<int>(rgb.green) << ","sv
+                << static_cast<int>(rgb.blue) << ")"sv;
         }
         void operator()(svg::Rgba rgba) const {
-            out << "rgba("sv << static_cast<int>(rgba.red) << ","sv << static_cast<int>(rgba.green) << ","sv << static_cast<int>(rgba.blue) << ","sv << rgba.opacity << ")"sv;
+            out << "rgba("sv << static_cast<int>(rgba.red) << ","sv << static_cast<int>(rgba.green) << ","sv
+                << static_cast<int>(rgba.blue) << ","sv << rgba.opacity << ")"sv;
         }
     };
 
@@ -233,8 +235,8 @@ namespace svg {
 
     private:
         void RenderObject(const RenderContext& context) const override;
-        std::string RemoveOutSpaces(const std::string& str) const;
-        std::string SpecialSymbolsShield(const std::string& text) const;
+        static std::string RemoveOutSpaces(const std::string& str) ;
+        static std::string SpecialSymbolsShield(const std::string& text) ;
 
         Point pos_;
         Point offset_;

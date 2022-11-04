@@ -38,16 +38,16 @@ int main() {
         switch (request.type)
         {
         case RequestType::ROUTE:
-            json_answer_array.push_back(std::move(GetRouteNode(request, requestHandler)));
+            json_answer_array.push_back(GetRouteNode(request, requestHandler));
             break;
         case RequestType::BUS:
-            json_answer_array.push_back(std::move(GetBusInfoNode(request, requestHandler)));
+            json_answer_array.push_back(GetBusInfoNode(request, requestHandler));
             break;        
         case RequestType::STOP:
-            json_answer_array.push_back(std::move(GetBusesListNode(request, requestHandler)));
+            json_answer_array.push_back(GetBusesListNode(request, requestHandler));
             break;
         case RequestType::MAP:
-            json_answer_array.push_back(std::move(GetTransportMapNode(request, requestHandler)));
+            json_answer_array.push_back(GetTransportMapNode(request, requestHandler));
             break;                    
         default:
             break;

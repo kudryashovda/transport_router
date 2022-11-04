@@ -40,7 +40,7 @@ namespace json {
     // --- Builder ---
     void Builder::CreateNode(const Node::Value& value, bool is_marker) {
         auto lambdaNodeCreator = [this, is_marker](auto&& value) {
-            m_nodes_stack_.emplace_back(SNode{ std::make_unique<Node>(std::move(value)), is_marker });
+            m_nodes_stack_.emplace_back(SNode{ std::make_unique<Node>(value), is_marker });
         };
         std::visit(lambdaNodeCreator, value);
     }

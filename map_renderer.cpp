@@ -15,7 +15,8 @@ double MapRenderer::GetPadding() const {
     return rs_.padding;
 }
 
-void MapRenderer::RenderBusPolyline(svg::Document& doc, const std::deque<svg::Point>& stops_points, size_t color_idx) const {
+void
+MapRenderer::RenderBusPolyline(svg::Document &doc, const std::deque<svg::Point> &stops_points, size_t color_idx) const {
     svg::Polyline polyline;
 
     for (const auto& stop_point : stops_points) {
@@ -30,7 +31,8 @@ void MapRenderer::RenderBusPolyline(svg::Document& doc, const std::deque<svg::Po
     doc.Add(std::move(polyline));
 }
 
-void MapRenderer::RenderBusName(svg::Document& doc, const svg::Point& pos, const std::string& name, size_t color_idx) const {
+void
+MapRenderer::RenderBusName(svg::Document &doc, const svg::Point &pos, const std::string &name, size_t color_idx) const {
     svg::Text text_underlayer;
     text_underlayer.SetFillColor(rs_.underlayer_color)
         .SetStrokeColor(rs_.underlayer_color)

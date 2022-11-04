@@ -33,7 +33,7 @@ namespace json {
 
     class DictItemContext {
     public:
-        DictItemContext(Builder& builder)
+        explicit DictItemContext(Builder& builder)
             : builder_(builder){};
 
         KeyContext& Key(const std::string& key);
@@ -45,7 +45,7 @@ namespace json {
 
     class StartX {
     public:
-        StartX(Builder& builder)
+        explicit StartX(Builder& builder)
             : builder_(builder){};
 
         DictItemContext& StartDict();
@@ -57,7 +57,7 @@ namespace json {
 
     class KeyContext : public StartX {
     public:
-        KeyContext(Builder& builder)
+        explicit KeyContext(Builder& builder)
             : StartX(builder)
             , builder_(builder){};
 
@@ -69,7 +69,7 @@ namespace json {
 
     class StartArrayContext : public StartX {
     public:
-        StartArrayContext(Builder& builder)
+        explicit StartArrayContext(Builder& builder)
             : StartX(builder)
             , builder_(builder){};
 
